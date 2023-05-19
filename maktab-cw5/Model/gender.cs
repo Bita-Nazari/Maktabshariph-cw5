@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace maktab_cw5.Model
 {
-    internal class gender
+    public enum gender
     {
+        Male,
+        Female
     }
 }
