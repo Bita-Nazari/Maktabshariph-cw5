@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace maktab_cw5
@@ -27,6 +28,16 @@ namespace maktab_cw5
         {
             return PeopleList.people.FindAll(x => x.Name.StartsWith(firstchar));
 
+        }
+        public List<string>getInvalidEmail() 
+        {
+
+            return PeopleList.people.FindAll(x => checkEmail (x.EmailAddress)).Select(x=> x.EmailAddress).ToList();
+        }
+
+        private bool checkEmail(string email)
+        {
+            return Regex.IsMatch(email, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
         }
     }
 }
