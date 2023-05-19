@@ -23,5 +23,10 @@ namespace maktab_cw5
         return PeopleList.people.FindAll(person => person.City == city).Select(person => person.Name +  person.LastName).ToList();
         
         }
+        public List <person> getByNameStartChar(char firstchar) 
+        {
+            return PeopleList.people.FindAll(x => x.Name.StartsWith(firstchar));
+
+        }
     }
 }
